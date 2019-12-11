@@ -88,10 +88,11 @@ if __name__ == '__main__':
     sheetnames=wb.sheetnames
     print(sheetnames)
     a="测试"
-    b='zyxwvucbuetsrqponmlkjihgfeda'
+    set=['A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P','Q','R','S','T','U','V','W','X','Y','Z','a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z']
+    b=random.choice(set)
     for m in range(2,4):
-        Write_excel(data_path).write(0,m,1,a + b[m])
-        # Write_excel(data_path).write(1, m, 1, b[m])
-        # Write_excel(data_path).write(2, m, 1, a + b[m])
-        # Write_excel(data_path).write(3, m, 1, a + b[m])
-        # Write_excel(data_path).write(4, m, 1, a + b[m])
+        Write_excel(data_path).write(0,m,1,a + b)
+        # Write_excel(data_path).write(1, m, 1, b)
+        # Write_excel(data_path).write(2, m, 3,a )
+        # Write_excel(data_path).write(3, m, 1, a + b)
+        # Write_excel(data_path).write(4, m, 1, a + b)
