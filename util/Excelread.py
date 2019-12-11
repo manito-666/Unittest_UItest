@@ -14,7 +14,6 @@ class ExcelUtil(object):
         # the current column-当前列
         self.curRowNo = 1
 
-
         r = []
         while self.hasNext():
             s = {}
