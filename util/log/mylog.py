@@ -1,5 +1,4 @@
 #coding=utf-8
-
 import logging
 import time
 import os
@@ -52,9 +51,6 @@ class Log:
 
     def error(self,message):
         self.__printconsole('error', message)
-
-
-
 
 
 if __name__ == '__main__':
