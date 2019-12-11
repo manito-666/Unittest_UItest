@@ -5,6 +5,7 @@ from util.log.mylog import Log
 from config.globalparam import data_path
 
 def copy_excel(excelpath1,excelpath2):
+    '''复制表格'''
     wb2=openpyxl.Workbook()
     wb2.save(excelpath2)
 
@@ -19,18 +20,16 @@ def copy_excel(excelpath1,excelpath2):
     max_row=sheet1.max_row
     max_column=sheet1.max_column
 
+
     for m in list(range(1, max_row + 1)):
         for n in list(range(97, 97 + max_column)):  # chr(97)='a'
             n = chr(n)  # ASCII字符
             i = '%s%d' % (n, m)  # 单元格编号
             cell1 = sheet1[i].value # 获取data单元格数据
             sheet2[i].value = cell1  # 赋值到test单元格
-
     wb2.save(excelpath2)  # 保存数据
     wb1.close()  # 关闭excel
     wb2.close()
-
-
 
 class Write_excel(object):
     '''修改excel数据'''
@@ -52,6 +51,7 @@ class Write_excel(object):
 
 
     def printing(self):
+        '''打印data表格'''
         wb=openpyxl.load_workbook(data_path)
         sheets=wb.sheetnames
 
