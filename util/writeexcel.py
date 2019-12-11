@@ -34,7 +34,6 @@ def copy_excel(excelpath1,excelpath2):
 
 class Write_excel(object):
     '''修改excel数据'''
-
     def __init__(self, filename,):
         self.filename=filename  #定义文件名获取方法
         self.wb = load_workbook(self.filename)  #打开已有的工作簿
@@ -50,18 +49,6 @@ class Write_excel(object):
         self.ws.cell(row_n, col_n).value = value
         self.wb.save(self.filename)
         Log().info('更新数据完成！')
-
-    def remove_order(self, num, dic4, dic2, bookname, sheetname):
-        flag = False
-        sum = 0
-        for i in dic4.keys():
-            if num == i and dic2[num][9] == '已退款':  # 判定指定属性，确定删除行
-                sum += 1
-                dic2.pop(num)
-                self.updateExcle(dic2, data_path, sheetname[0], sum)
-                flag = True
-                break
-        return flag
 
 
     def printing(self):
