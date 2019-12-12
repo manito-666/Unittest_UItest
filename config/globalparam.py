@@ -24,3 +24,5 @@ browser = 'Chrome'
 
 # 测试数据路径
 data_path = os.path.join(prj_path, 'util', 'data.xlsx')
+
+impo_path=os.path.join(prj_path,'util','users-Template .xlsx')
