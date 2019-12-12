@@ -192,13 +192,19 @@ class Testcase04(unittest.TestCase):
 
     def testcase05(self):
         '''批量创建终端用户'''
-        r=z_d().pldaoru(r"F:\python\5G_demo\case\EndUser\users-Template .xlsx")
-        self.assertEqual("导入成功！",r,"测试失败")
+        r=z_d().pldaoru(globalparam.impo_path)
+        self.assertIn("导入成功！",r,"测试失败")
         Log().info(r)
 
     def testcase06(self):
+        '''删除终端用户'''
         r=z_d().delete()
         self.assertIn(r,'删除成功','测试失败')
+
+    def testcase07(self):
+        '''批量删除终端用户'''
+        r=z_d().betch_delete()
+        self.assertEqual(r,'批量删除成功',"测试失败")
 
 # #切片模版用例---5
 class Testcase05(unittest.TestCase):
@@ -235,6 +241,7 @@ class Testcase05(unittest.TestCase):
         self.assertIn(r, "编辑", "测试失败")
 
     def testcase05(self):
+        '''删除切片'''
         r=qie_pian().delete()
         self.assertIn(r,'删除成功','测试失败')
 
@@ -362,6 +369,7 @@ class Testcase08(unittest.TestCase):
         self.assertIn(r, "编辑", "测试失败")
 
     def testcase07(self):
+        '''删除用户'''
         r=system().delete()
         self.assertIn(r,'删除成功',"测试失败")
 
