@@ -139,10 +139,28 @@ class z_d():
             screenshot(self.d, 'zhongduan')
             raise
 
+    def betch_delete(self):
+        WebDriverWait(self.d,10,1).until(lambda ele:self.d.find_element_by_xpath('/html/body/div[1]/div/div[2]/div[2]/div/div[2]/div[2]/div[2]/div[1]/div[3]/table/tbody/tr[1]/td[1]/div/label/span/span'))
+        self.d.find_element_by_xpath('/html/body/div[1]/div/div[2]/div[2]/div/div[2]/div[2]/div[2]/div[1]/div[3]/table/tbody/tr[1]/td[1]/div/label/span/span').click()
+        sleep(1)
+        self.d.find_element_by_xpath('/html/body/div[1]/div/div[2]/div[2]/div/div[2]/div[2]/div[2]/div[1]/div[3]/table/tbody/tr[2]/td[1]/div/label/span/span').click()
+        sleep(1)
+        self.d.find_element_by_xpath('/html/body/div[1]/div/div[2]/div[2]/div/div[2]/div[2]/div[1]/div/span[1]').click()
+        sleep(1)
+        #点击确认删除
+        self.d.find_element_by_xpath('/html/body/div[2]/div/div[3]/button[2]').click()
+        WebDriverWait(self.d,30,1).until(lambda ele:self.d.find_element_by_css_selector('.el-message'))
+        m=self.d.find_element_by_css_selector('.el-message').text
+        print(m)
+        if "成功" in m:
+            print("success")
+        else:
+            print("fail")
+
 
 if __name__ == '__main__':
     # z_d().add("13399991111","9999","11")
     # z_d().alter()
-    # z_d().pldaoru(r"F:\python\iNMS_UItest\EndUser\users-Template .xlsx")
+    # z_d().pldaoru()
     # z_d().pladd()r
-    z_d().delete()
+    z_d().betch_delete()
