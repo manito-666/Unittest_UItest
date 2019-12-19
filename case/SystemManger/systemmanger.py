@@ -3,6 +3,7 @@ from time import sleep
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver import ActionChains
 from common.img import screenshot
+from common.raiseout import raiseout
 class system():
     def __init__(self):
         L = Login()
@@ -37,7 +38,7 @@ class system():
         except Exception as msg:
             print(u"异常原因:用户已存在")
             screenshot(self.d, 'xitong')
-            raise
+            raiseout()
 
 #创建的运维人员户登录系统
     def login_yw(self,name):
@@ -79,7 +80,7 @@ class system():
         except Exception as msg:
             print(u"异常原因:用户已存在")
             screenshot(self.d, 'xitong')
-            raise
+            raiseout()
 
 #创建的运营人员户登录系统
     def login_yy(self,name):
@@ -119,7 +120,7 @@ class system():
         except Exception as msg:
             print(u"异常原因:用户已存在")
             screenshot(self.d, 'xitong')
-            raise
+            raiseout()
 
     def alter(self,name,beizhu):
         self.d.find_element_by_xpath('//*[@id="index"]/div[2]/div[2]/div/div[2]/div[3]/div[1]/div[3]/table/tbody/tr[1]/td[5]/div/button[1]').click()
@@ -155,7 +156,7 @@ class system():
         except Exception as msg:
             print(u"异常原因:用户不存在")
             screenshot(self.d, 'xitong')
-            raise
+            raiseout()
 
     def select_juese(self,name):
         self.d.find_element_by_xpath('//*[@id="index"]/div[2]/div[2]/div/div[2]/div[1]/form/div[2]/div/div/div/input').send_keys(name)
@@ -169,7 +170,7 @@ class system():
         except Exception as msg:
             print(u"异常原因:用户不存在")
             screenshot(self.d, 'xitong')
-            raise
+            raiseout()
 
     def delete(self):
         WebDriverWait(self.d,10,1).until(lambda ele:self.d.find_element_by_xpath('//*[@id="index"]/div[2]/div[2]/div/div[2]/div[3]/div[1]/div[3]/table/tbody/tr[3]/td[5]/div/button[2]'))
@@ -182,7 +183,7 @@ class system():
             return m
         except Exception as msg:
             screenshot(self.d, 'yewu')
-            raise
+            raiseout()
 
 
 if __name__ == '__main__':

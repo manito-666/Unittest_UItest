@@ -46,12 +46,6 @@ class quit():
         d.find_element_by_xpath('/html/body/ul/li').click()
         sleep(1)
         m=d.find_element_by_xpath('/html/body/div/div/div[1]/div').text
-        # print(m)
-        # if "登录Login" in m:
-        #     print("测试成功")
-        # else:
-        #     print("测试失败")
-        self.d.close()
         return m
 
 if __name__ == '__main__':
