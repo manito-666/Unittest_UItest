@@ -3,6 +3,7 @@ from common.Login import Login
 from time import sleep
 from selenium.webdriver.support.ui import WebDriverWait
 from common.img import screenshot
+from common.raiseout import raiseout
 class qie_pian():
     def __init__(self):
         L = Login()
@@ -75,7 +76,7 @@ class qie_pian():
         except Exception as msg:
             print(u"异常原因:切片模版名称不能重复")
             screenshot(self.d, 'qiepian')
-            raise
+            raiseout()
 
     def alter(self):
         self.d.find_element_by_xpath('/html/body/div/div/div[2]/div[2]/div/div[2]/div[2]/div[2]/div[1]/div[3]/table/tbody/tr[1]/td[7]/div/button[2]/span').click()
@@ -95,7 +96,7 @@ class qie_pian():
             return t
         except Exception as msg:
             screenshot(self.d, 'qiepian')
-            raise
+            raiseout()
 
 
     def select1(self,name):#根据模版名称查询
@@ -109,7 +110,7 @@ class qie_pian():
         except Exception as msg:
             print(u"异常原因:未找到该元素")
             screenshot(self.d, 'qiepian')
-            raise
+            raiseout()
 
     def select2(self):  # 根据模版名称查询
         self.d.find_element_by_xpath('//*[@id="index"]/div[2]/div[2]/div/div[2]/div[1]/form/div[2]/div/div/div/span/span/i').click()
@@ -148,7 +149,7 @@ class qie_pian():
         except Exception as msg:
             print(u"异常原因:切片模版正在被使用无法删除")
             screenshot(self.d, 'qiepian')
-            raise
+            raiseout()
 
 if __name__ == '__main__':
     # qie_pian().add("测试aa","10.1.1.1","23")
