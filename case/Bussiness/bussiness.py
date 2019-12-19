@@ -3,7 +3,7 @@ from common.Login import Login
 from time import sleep
 from selenium.webdriver.support.ui import WebDriverWait
 from common.img import screenshot
-
+from common.raiseout import raiseout
 class ye_wu():
     def __init__(self):
         L = Login()
@@ -41,7 +41,7 @@ class ye_wu():
         except Exception :
             print(u"异常原因:场景名不能重复")
             screenshot(self.d,'yewu')
-            raise
+            raiseout()
 
     def alter(self,name):
         self.d.find_element_by_xpath('//*[@id="index"]/div[2]/div[2]/div/div[2]/div[3]/div[1]/div[3]/table/tbody/tr[7]/td[5]/div/button[1]').click()
@@ -66,7 +66,7 @@ class ye_wu():
             return t
         except Exception :
             screenshot(self.d, 'yewu')
-            raise
+            raiseout()
 
     def select(self):
         # 输入业务名称
@@ -79,7 +79,7 @@ class ye_wu():
         except Exception as msg:
             print(u"异常原因:未找到该元素")
             screenshot(self.d, 'yewu')
-            raise
+            raiseout()
 
     def delete(self):
         WebDriverWait(self.d, 60, 1).until(lambda ele: self.d.find_element_by_xpath('//*[@id="index"]/div[2]/div[2]/div/div[2]/div[3]/div[2]/ul/li[2]'))
@@ -99,7 +99,7 @@ class ye_wu():
         except Exception :
             print(u"异常原因:场景正在被使用无法删除")
             screenshot(self.d, 'yewu')
-            raise
+            raiseout()
 
 
 if __name__ == '__main__':
