@@ -3,6 +3,7 @@ from common.Login import Login
 from time import sleep
 from selenium.webdriver.support.ui import WebDriverWait
 from common.img import screenshot
+from common.raiseout import raiseout
 class CJ():
     def __init__(self):
         L = Login()
@@ -36,10 +37,10 @@ class CJ():
             t = self.d.find_element_by_css_selector('body > div.el-message.el-message--success > p').text
             self.d.close()
             return t
-        except Exception as msg:
+        except Exception :
             print(u"异常原因:场景名不能重复")
             screenshot(self.d,'changjing')
-            raise msg
+            raiseout()
 
     def alter(self,name):
         # 点击编辑
@@ -61,9 +62,9 @@ class CJ():
             t = self.d.find_element_by_css_selector('body > div.el-message.el-message--success').text
             self.d.close()
             return t
-        except Exception as msg:
+        except Exception :
             screenshot(self.d, 'changjing')
-            raise
+            raiseout()
 
     def select_cj(self):
         # 输入场景名称进行查找
@@ -76,10 +77,10 @@ class CJ():
             m = self.d.find_element_by_xpath('//*[@id="index"]/div[2]/div[2]/div/div[2]/div[3]/div[1]/div[3]/table/tbody/tr[1]/td[5]/div/button[1]').text
             self.d.close()
             return m
-        except Exception as msg:
+        except Exception :
             print(u"异常原因:未找到该元素")
             screenshot(self.d,'changjing')
-            raise
+            raiseout()
 
     def select_hy(self):
         # 选择行业进行查询
@@ -96,7 +97,7 @@ class CJ():
         except Exception as msg:
             print(u"异常原因:未找到该元素")
             screenshot(self.d, 'changjing')
-            raise
+            raiseout()
 
     def deleter(self):
         WebDriverWait(self.d, 60, 1).until(lambda ele: self.d.find_element_by_xpath('//*[@id="index"]/div[2]/div[2]/div/div[2]/div[3]/div[2]/ul/li[2]'))
@@ -114,7 +115,7 @@ class CJ():
         except Exception as msg:
             print(u"异常原因:场景正在被使用无法删除")
             screenshot(self.d, 'changjing')
-            raise
+            raiseout()
 
 if __name__ == '__main__':
     CJ().add("手术","11")
