@@ -4,6 +4,7 @@ from time import sleep
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.common.action_chains import ActionChains
 from common.img import screenshot
+from common.raiseout import raiseout
 class zu_hu():
     def __init__(self):
         L = Login()
@@ -53,7 +54,7 @@ class zu_hu():
         except Exception as msg:
             print(u"异常原因:联系人手机号码不能重复")
             screenshot(self.d, 'zuhu')
-            raise
+            raiseout()
 
     def alter(self,name,xm,phone,beizhu):
         #点击编辑
@@ -99,7 +100,7 @@ class zu_hu():
 
     def peizhi_1(self):
         #点击租户名称
-        self.d.find_element_by_xpath('//*[@id="index"]/div[2]/div[2]/div/div[2]/div[2]/div[2]/div[1]/div[3]/table/tbody/tr[4]/td[2]/div/a').click()
+        self.d.find_element_by_xpath('//*[@id="index"]/div[2]/div[2]/div/div[2]/div[2]/div[2]/div[1]/div[3]/table/tbody/tr[1]/td[2]/div/a').click()
         sleep(1)
         #点击专网配置
         self.d.find_element_by_xpath('//*[@id="index"]/div[2]/div[2]/div/div[2]/div[1]/div[2]/div[2]/button[1]').click()
@@ -114,10 +115,10 @@ class zu_hu():
         self.d.find_element_by_xpath('//*[@id="index"]/div[2]/div[2]/div/div[2]/div[1]/div[2]/div[2]/div[5]/div[2]/div/div[2]/div/div/div[3]/div[3]/button[1]').click()
         sleep(1)
         #添加更多基站ID
-        # self.d.find_element_by_css_selector('#index > div.second-container > div.main-wrapper > div > div.tenant-container > div.detail-content > div.content > div.topo > div.network-setting-dialog > div:nth-child(1) > div > div.el-dialog__body > form > div.el-form-item.el-form-item--feedback.is-required > div > button > span').click()
-        # sleep(1)
-        # self.d.find_element_by_xpath('//*[@id="index"]/div[2]/div[2]/div/div[2]/div[1]/div[2]/div[2]/div[5]/div[1]/div/div[2]/form/div[2]/div/div[3]/div/input').send_keys("11111")
-        # sleep(1)
+        self.d.find_element_by_css_selector('#index > div.second-container > div.main-wrapper > div > div.tenant-container > div.detail-content > div.content > div.topo > div.network-setting-dialog > div:nth-child(1) > div > div.el-dialog__body > form > div.el-form-item.el-form-item--feedback.is-required > div > button > span').click()
+        sleep(1)
+        self.d.find_element_by_xpath('//*[@id="index"]/div[2]/div[2]/div/div[2]/div[1]/div[2]/div[2]/div[5]/div[1]/div/div[2]/form/div[2]/div/div[3]/div/input').send_keys("11111")
+        sleep(1)
         #点击提交
         try:
             self.d.find_element_by_xpath('//*[@id="index"]/div[2]/div[2]/div/div[2]/div[1]/div[2]/div[2]/div[5]/div[1]/div/div[3]/div/button[1]/span').click()
@@ -127,12 +128,11 @@ class zu_hu():
             self.d.close()
             return t
         except Exception as msg:
-            print(u"异常原因:")
             screenshot(self.d, 'zuhu')
-            raise
+            raiseout()
     def peizhi_2(self):
         #点击租户名称
-        self.d.find_element_by_xpath('//*[@id="index"]/div[2]/div[2]/div/div[2]/div[2]/div[2]/div[1]/div[3]/table/tbody/tr[4]/td[2]/div/a').click()
+        self.d.find_element_by_xpath('//*[@id="index"]/div[2]/div[2]/div/div[2]/div[2]/div[2]/div[1]/div[3]/table/tbody/tr[1]/td[2]/div/a').click()
         sleep(1)
         #点击专网配置
         self.d.find_element_by_xpath('//*[@id="index"]/div[2]/div[2]/div/div[2]/div[1]/div[2]/div[2]/button[1]').click()
@@ -142,21 +142,21 @@ class zu_hu():
         self.d.find_element_by_xpath('/html/body/div[1]/div/div[2]/div[2]/div/div[2]/div[1]/div[2]/div[2]/div[5]/div[1]/div/div[2]/form/div[3]/div/div/div[1]/form/div[3]/div[2]/div/button/span').click()
         sleep(1)
         #选择模版
-        self.d.find_element_by_xpath('//*[@id="index"]/div[2]/div[2]/div/div[2]/div[1]/div[2]/div[2]/div[5]/div[1]/div/div[2]/form/div[3]/div/div/div[2]/div/div[2]/div/div/div[1]/div[2]/div[3]/table/tbody/tr/td[2]/div/label/span/span').click()
-        sleep(1)
-        self.d.find_element_by_xpath('/html/body/div[1]/div/div[2]/div[2]/div/div[2]/div[1]/div[2]/div[2]/div[5]/div[1]/div/div[2]/form/div[3]/div/div/div[2]/div/div[2]/div/div/div[3]/div[3]/button[1]').click()
-        sleep(1)
-        #选择场景
-        # self.d.find_element_by_xpath('//*[@id="index"]/div[2]/div[2]/div/div[2]/div[1]/div[2]/div[2]/div[5]/div[1]/div/div[2]/form/div[3]/div/div/div[1]/form[2]/div[1]/div/div/div[1]/span/span/i').click()
-        # sleep(1)
-        # self.d.find_element_by_xpath('/html/body/div[3]/div[1]/div[1]/ul/li[2]').click()
-        # sleep(1)
-        # #选择业务
-        # self.d.find_element_by_xpath('//*[@id="index"]/div[2]/div[2]/div/div[2]/div[1]/div[2]/div[2]/div[5]/div[1]/div/div[2]/form/div[3]/div/div/div[1]/form[2]/div[2]/div/div/div[1]/span/span/i').click()
-        # sleep(1)
-        # self.d.find_element_by_xpath('/html/body/div[1]/div/div[2]/div[2]/div/div[2]/div[1]/div[2]/div[2]/div[5]/div[1]/div/div[3]/div/button[1]').click()
-        # sleep(1)
         try:
+            self.d.find_element_by_xpath('//*[@id="index"]/div[2]/div[2]/div/div[2]/div[1]/div[2]/div[2]/div[5]/div[1]/div/div[2]/form/div[3]/div/div/div[2]/div/div[2]/div/div/div[1]/div[2]/div[3]/table/tbody/tr/td[2]/div/label/span/span').click()
+            sleep(1)
+            self.d.find_element_by_xpath('/html/body/div[1]/div/div[2]/div[2]/div/div[2]/div[1]/div[2]/div[2]/div[5]/div[1]/div/div[2]/form/div[3]/div/div/div[2]/div/div[2]/div/div/div[3]/div[3]/button[1]').click()
+            sleep(1)
+            #选择场景
+            # self.d.find_element_by_xpath('//*[@id="index"]/div[2]/div[2]/div/div[2]/div[1]/div[2]/div[2]/div[5]/div[1]/div/div[2]/form/div[3]/div/div/div[1]/form[2]/div[1]/div/div/div[1]/span/span/i').click()
+            # sleep(1)
+            # self.d.find_element_by_xpath('/html/body/div[3]/div[1]/div[1]/ul/li[2]').click()
+            # sleep(1)
+            # #选择业务
+            # self.d.find_element_by_xpath('//*[@id="index"]/div[2]/div[2]/div/div[2]/div[1]/div[2]/div[2]/div[5]/div[1]/div/div[2]/form/div[3]/div/div/div[1]/form[2]/div[2]/div/div/div[1]/span/span/i').click()
+            # sleep(1)
+            # self.d.find_element_by_xpath('/html/body/div[1]/div/div[2]/div[2]/div/div[2]/div[1]/div[2]/div[2]/div[5]/div[1]/div/div[3]/div/button[1]').click()
+            # sleep(1)
             self.d.find_element_by_css_selector('div.el-dialog__footer:nth-child(3) > div:nth-child(1) > button:nth-child(1)').click()
             WebDriverWait(self.d, 30, 1).until(lambda ele: self.d.find_element_by_css_selector('body > div.el-message.el-message--success > p'))
             t = self.d.find_element_by_css_selector('body > div.el-message.el-message--success > p').text
@@ -164,7 +164,7 @@ class zu_hu():
             return t
         except Exception as msg:
             screenshot(self.d, 'zuhu')
-            raise
+            raiseout()
 
     def zuhu_login(self,name,phone):
         WebDriverWait(self.d, 30, 0.5).until(lambda ele: self.d.find_element_by_xpath('//*[@id="index"]/div[2]/div[2]/div/div[2]/div[2]/div[1]/span'))
@@ -211,15 +211,9 @@ class zu_hu():
             sleep(1)
             WebDriverWait(self.d,30,1).until(lambda ele:self.d.find_element_by_xpath('//*[@id="index"]/div[1]/section/ul[1]/li'))
             m=self.d.find_element_by_xpath('//*[@id="index"]/div[1]/section/ul[1]/li').text
-            # print(m)
-            # if "态势感知" in m:
-            #     print("测试成功")
-            # else:
-            #     print("测试失败")
             self.d.close()
             return m
-        except Exception as msg:
-            print(u"异常原因:")
+        except Exception:
             screenshot(self.d, 'zuhu')
             raise
 
@@ -235,12 +229,35 @@ class zu_hu():
         except Exception as msg:
             print(u"异常原因:无法删除")
             screenshot(self.d, 'zhongduan')
-            raise
+            raiseout()
+
+    def state(self):
+        self.d.find_element_by_xpath('//*[@id="index"]/div[2]/div[2]/div/div[2]/div[2]/div[2]/div[1]/div[3]/table/tbody/tr[1]/td[2]/div/a').click()
+        sleep(1)
+        try:
+            WebDriverWait(self.d, 10, 1).until(lambda ele:self.d.find_element_by_css_selector('button.is-plain:nth-child(1)'))
+            self.d.find_element_by_css_selector('button.is-plain:nth-child(1)').click()
+            sleep(1)
+            self.d.find_element_by_xpath('/html/body/div[2]/div/div[3]/button[2]').click()
+            WebDriverWait(self.d,30,0.5).until(lambda ele:self.d.find_element_by_xpath('/html/body/div[3]/p'))
+            m=self.d.find_element_by_xpath('/html/body/div[3]/p').text
+            return m
+        except Exception :
+            screenshot(self.d, 'zhongduan')
+            raiseout()
+
+    def download(self):
+        # 点击租户名称
+        self.d.find_element_by_xpath('//*[@id="index"]/div[2]/div[2]/div/div[2]/div[2]/div[2]/div[1]/div[3]/table/tbody/tr[1]/td[2]/div/a').click()
+        sleep(1)
+        #点击下载配置工单
+        self.d.find_element_by_css_selector('.el-icon-download').click()
+
 
 
 if __name__ == '__main__':
     # zu_hu().add("住户3","李四","13325823333","11")
     # zu_hu().alter("修改租户名称", "李", "13305823333","11")
-    zu_hu().delete()
-    # zu_hu().peizhi_2()
+    # zu_hu().delete()
+    zu_hu().state()
     # zu_hu().zuhu_login("李四","13377705222")
