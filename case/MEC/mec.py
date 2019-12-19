@@ -2,6 +2,7 @@ from common.Login import Login
 from time import sleep
 from selenium.webdriver.support.ui import WebDriverWait
 from common.img import screenshot
+from common.raiseout import raiseout
 class M_ec():
     def __init__(self):
         L = Login()
@@ -39,7 +40,7 @@ class M_ec():
         except Exception as msg:
             print(u"异常原因:该租户已添加mec且租户只能添加一个")
             screenshot(self.d, 'mec')
-            raise
+            raiseout()
 
 
     def alter(self):
@@ -59,7 +60,7 @@ class M_ec():
             return t
         except Exception as msg:
             screenshot(self.d, 'mec')
-            raise
+            raiseout()
 
     def select(self,name,cs):
         self.d.find_element_by_xpath('//*[@id="index"]/div[2]/div[2]/div/div[2]/div[1]/form/div[1]/div/div/div/input').send_keys(name)
@@ -90,7 +91,7 @@ class M_ec():
             return m
         except Exception as msg:
             screenshot(self.d, 'mec')
-            raise
+            raiseout()
 
 
 
