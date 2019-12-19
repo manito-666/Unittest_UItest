@@ -3,6 +3,7 @@ from common.Login import Login
 from time import sleep
 from selenium.webdriver.support.ui import WebDriverWait
 from common.img import screenshot
+from common.raiseout import raiseout
 class z_w():
     def __init__(self):
         L = Login()
@@ -83,7 +84,7 @@ class z_w():
         except Exception as msg:
             print(u"异常原因:专网等级模版名称不能重复")
             screenshot(self.d, 'zhuanwang')
-            raise
+            raiseout()
 
 
     def add02(self,name):#引用模版
@@ -137,7 +138,7 @@ class z_w():
             return t
         except Exception as msg:
             screenshot(self.d, 'zhuanwang')
-            raise
+            raiseout()
 
     def select_1(self,name):
         self.d.find_element_by_xpath('//*[@id="index"]/div[2]/div[2]/div/div[2]/div[1]/form/div[1]/div/div/input').send_keys(name)
@@ -174,7 +175,7 @@ class z_w():
         except Exception as msg:
             print(u"异常原因:该元素存在")
             screenshot(self.d, 'zhuanwang')
-            raise
+            raiseout()
 
 
     def delete(self):
@@ -193,7 +194,7 @@ class z_w():
         except Exception as msg:
             print(u"异常原因:专网等级模版正在被使用无法删除")
             screenshot(self.d, 'zhuanwang')
-            raise
+            raiseout()
 
 
 
