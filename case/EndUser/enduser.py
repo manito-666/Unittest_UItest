@@ -2,6 +2,7 @@ from common.Login import Login
 from time import sleep
 from selenium.webdriver.support.ui import WebDriverWait
 from common.img import screenshot
+from common.raiseout import raiseout
 class z_d():
     def __init__(self):
         L = Login()
@@ -51,7 +52,7 @@ class z_d():
         except Exception as msg:
             print(u"异常原因:终端用户手机号不能重复")
             screenshot(self.d, 'zhongduan')
-            raise
+            raiseout()
         else:
             return t
 
@@ -74,7 +75,7 @@ class z_d():
             return t
         except Exception as msg:
             screenshot(self.d, 'zhongduan')
-            raise
+            raiseout()
 
     def select(self):
         #查询终端用户[手机号]
@@ -86,10 +87,10 @@ class z_d():
             m=self.d.find_element_by_xpath('//*[@id="index"]/div[2]/div[2]/div/div[2]/div[2]/div[2]/div[1]/div[3]/table/tbody/tr/td[2]').text
             self.d.close()
             return m
-        except Exception as msg:
+        except Exception :
             print(u"异常原因:未找到该元素")
             screenshot(self.d, 'zhongduan')
-            raise msg
+            raiseout()
 
     def pladd(self):
         self.d.find_element_by_xpath('/html/body/div/div/div[2]/div[2]/div/div[2]/div[2]/div[1]/div').click()
@@ -100,7 +101,7 @@ class z_d():
             self.d.close()
         except Exception as msg:
             screenshot(self.d, 'zhongduan')
-            raise msg
+            raiseout()
         else:
             return m
 
@@ -121,7 +122,7 @@ class z_d():
         except Exception as msg:
             print(u"异常原因:终端用户手机号不能重复")
             screenshot(self.d, 'zhongduan')
-            raise
+            raiseout()
 
     def delete(self):#默认删除第一个元素
         WebDriverWait(self.d, 30, 1).until(lambda ele: self.d.find_element_by_xpath('//*[@id="index"]/div[2]/div[2]/div/div[2]/div[2]/div[2]/div[1]/div[3]/table/tbody/tr[1]/td[9]/div/button[2]'))
@@ -137,7 +138,7 @@ class z_d():
         except Exception as msg:
             print(u"异常原因:无法删除")
             screenshot(self.d, 'zhongduan')
-            raise
+            raiseout()
 
     def betch_delete(self):
         WebDriverWait(self.d,10,1).until(lambda ele:self.d.find_element_by_xpath('/html/body/div[1]/div/div[2]/div[2]/div/div[2]/div[2]/div[2]/div[1]/div[3]/table/tbody/tr[1]/td[1]/div/label/span/span'))
@@ -148,14 +149,14 @@ class z_d():
         self.d.find_element_by_xpath('/html/body/div[1]/div/div[2]/div[2]/div/div[2]/div[2]/div[1]/div/span[1]').click()
         sleep(1)
         #点击确认删除
-        self.d.find_element_by_xpath('/html/body/div[2]/div/div[3]/button[2]').click()
-        WebDriverWait(self.d,30,1).until(lambda ele:self.d.find_element_by_css_selector('.el-message'))
-        m=self.d.find_element_by_css_selector('.el-message').text
-        print(m)
-        if "成功" in m:
-            print("success")
-        else:
-            print("fail")
+        try:
+            self.d.find_element_by_xpath('/html/body/div[2]/div/div[3]/button[2]').click()
+            WebDriverWait(self.d,30,1).until(lambda ele:self.d.find_element_by_css_selector('.el-message'))
+            m=self.d.find_element_by_css_selector('.el-message').text
+            return m
+        except Exception:
+            screenshot(self.d, 'zhongduan')
+            raiseout()
 
 
 if __name__ == '__main__':
