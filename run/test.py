@@ -8,6 +8,7 @@ from case.SliceTemplate.slicetemplate import qie_pian
 from case.MEC.mec import M_ec
 from case.NetworkLevel.networklevel import z_w
 from case.SystemManger.systemmanger import system
+from case.SystemManger.logout import quit
 from case.SituationAwareness.situationawareness import taishi
 from BeautifulReport import BeautifulReport
 from util.Excelread import ExcelUtil
@@ -16,8 +17,6 @@ from config import globalparam
 #取消警告提醒
 warnings.filterwarnings("ignore")
 report_path=globalparam.report_path
-now = time.strftime("%Y-%m-%d %H-%M-%S", time.localtime(time.time()))
-report_title = '专网管理测试报告' + now + ".html"
 epath=globalparam.data_path
 
 #场景用例---5
@@ -153,6 +152,11 @@ class Testcase03(unittest.TestCase):
         '''删除租户'''
         r=zu_hu().delete()
         self.assertIn(r,"删除成功",'测试失败')
+
+    def testcase008(self):
+        '''修改配置单状态'''
+        r=zu_hu().state()
+        self.assertEqual(r,'配置成功','测试失败')
 
 # #终端用户用例---6
 @ddt.ddt
@@ -373,6 +377,12 @@ class Testcase08(unittest.TestCase):
         r=system().delete()
         self.assertIn(r,'删除成功',"测试失败")
 
+    def testcase08(self):
+        '''运维运营登录退出'''
+        r=quit().Logout_('password')
+        self.assertEqual(r,'登录Login','测试失败')
+
+
 #综合态势感知用例----3条
 class Testcase09(unittest.TestCase):
     @classmethod
@@ -401,6 +411,8 @@ class Testcase09(unittest.TestCase):
 
 if __name__ == '__main__':
     suite = unittest.TestSuite()
+    now = time.strftime("%Y-%m-%d %H-%M-%S", time.localtime(time.time()))
+    report_title = '专网管理测试报告' + now + ".html"
     # runner = unittest.TextTestRunner(verbosity=2)
     # runner.run(suite)
 
