@@ -39,7 +39,7 @@ class Write_excel(object):
         self.ws = self.wb.active  # 激活sheet,得到活动表表名
 
     def write(self,i,row_n, col_n, value):
-        '''写入数据，如(2,3，"hello"),第二行第三列写入数据"hello"'''
+        '''写入数据，如(0,2,3，"hello"),在下标为0的表名第二行第三列写入数据"hello"'''
         #得到工作簿的所有工作表
         self.sheetnames = self.wb.sheetnames
         #得到工作簿的第i个下标的sheetname
@@ -74,12 +74,12 @@ if __name__ == '__main__':
     wb = load_workbook(data_path)
     sheetnames=wb.sheetnames
     print(sheetnames)
-    a="测试"
+
     set=['A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P','Q','R','S','T','U','V','W','X','Y','Z','a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z']
-    b=random.choice(set)
-    for m in range(2,4):
-        Write_excel(data_path).write(0,m,1,a + b)
-        # Write_excel(data_path).write(1, m, 1, b)
-        # Write_excel(data_path).write(2, m, 3,a )
-        # Write_excel(data_path).write(3, m, 1, a + b)
-        # Write_excel(data_path).write(4, m, 1, a + b)
+    b='测试'+random.choice(set)
+
+    Write_excel(data_path).write(0,2,1,b)
+    # Write_excel(data_path).write(1, 2, 1, b)
+    # Write_excel(data_path).write(2, 2, 3,b )
+    # Write_excel(data_path).write(3, 2, 1, b)
+    # Write_excel(data_path).write(4, 2, 1, b)
