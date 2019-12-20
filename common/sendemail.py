@@ -40,11 +40,14 @@ class SendMail:
         self.msg = MIMEMultipart()
         self.msg['Subject'] = '测试报告主题'
         self.msg['date'] = time.strftime('%a, %d %b %Y %H:%M:%S %z')
+        self.email_text = '自动化测试报告'
+        self.part_text = MIMEText(self.email_text)
+        self.msg.attach(self.part_text)
 
         with open(os.path.join(reportPath, newreport), 'rb') as f:
             mailbody = f.read()
-        html = MIMEText(mailbody, _subtype='html', _charset='utf-8')
-        self.msg.attach(html)
+        # html = MIMEText(mailbody, _subtype='html', _charset='utf-8')
+        # self.msg.attach(html)
 
         # html附件
         att1 = MIMEText(mailbody, 'base64', 'gb2312')
