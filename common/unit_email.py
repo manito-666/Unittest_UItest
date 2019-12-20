@@ -29,7 +29,7 @@ def send_mail_html(file):
     mail_body = f.read()
     f.close()
 
-    email_text = 't+自动化测试报告'
+    email_text = '自动化测试报告'
     t = time.strftime("%Y-%m-%d %H:%M:%S", time.localtime())
     subject = '自动化测试报告结果_' + t
     msg = MIMEMultipart()
@@ -47,7 +47,7 @@ def send_mail_html(file):
         smtp = smtplib.SMTP()
         smtp.connect(smtpserver)
         smtp.login(username, password)
-        smtp.sendmail(sender, [receiver,], msg.as_string())
+        smtp.sendmail(sender, [receiver,'1311691850@qq.com'], msg.as_string())
     except:
         logger.error('发送邮件失败')
     else:
