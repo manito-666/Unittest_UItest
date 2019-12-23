@@ -18,5 +18,5 @@ class Login:
         # self.d.find_element_by_xpath('//*[@id="app"]/div/div[1]/form/div[2]/div/div/input').send_keys('admin')
         # sleep(1)
         #点击提交登录系统
-        self.d.find_element_by_xpath('//*[@id="app"]/div/div[1]/form/div[3]/div/button').click()
+        self.d.find_element_by_xpath('//*[@id="app"]/div/div[1]/div[2]/form/div[3]/div/button').click()
         sleep(2)
