@@ -86,8 +86,8 @@ class ye_wu():
         self.d.find_element_by_xpath('//*[@id="index"]/div[2]/div[2]/div/div[2]/div[3]/div[2]/ul/li[2]').click()
         sleep(2)
         #点击删除[第2页数据]
-        WebDriverWait(self.d, 60, 1).until(lambda ele:self.d.find_element_by_xpath('//*[@id="index"]/div[2]/div[2]/div/div[2]/div[3]/div[1]/div[3]/table/tbody/tr[1]/td[5]/div/button[2]/span'))
-        self.d.find_element_by_xpath('//*[@id="index"]/div[2]/div[2]/div/div[2]/div[3]/div[1]/div[3]/table/tbody/tr[1]/td[5]/div/button[2]/span').click()
+        WebDriverWait(self.d, 60, 1).until(lambda ele:self.d.find_element_by_xpath('//*[@id="index"]/div[2]/div[2]/div/div[2]/div[3]/div[1]/div[3]/table/tbody/tr[1]/td[5]/div/button[2]'))
+        self.d.find_element_by_xpath('//*[@id="index"]/div[2]/div[2]/div/div[2]/div[3]/div[1]/div[3]/table/tbody/tr[1]/td[5]/div/button[2]').click()
         sleep(1)
         #确认删除
         try:
@@ -97,11 +97,13 @@ class ye_wu():
             self.d.close()
             return m
         except Exception :
+            self.d.find_element_by_xpath('/html/body/div[2]/div/div[3]/button/span').click()
             print(u"异常原因:场景正在被使用无法删除")
             screenshot(self.d, 'yewu')
             raiseout()
+            self.d.close()
 
 
 if __name__ == '__main__':
     # ye_wu().alter("自动化测试")
-    ye_wu().select()
+    ye_wu().delete()
