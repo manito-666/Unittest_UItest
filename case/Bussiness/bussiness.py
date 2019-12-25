@@ -9,6 +9,7 @@ class ye_wu():
         L = Login()
         L.login()
         self.d = L.d
+        self.d.maximize_window()
         # 点击数据模版管理
         WebDriverWait(self.d, 60, 1).until(lambda ele: self.d.find_element_by_css_selector('#index > div.second-container > div:nth-child(1) > div > div > ul > li:nth-child(3) > div'))
         self.d.find_element_by_css_selector('#index > div.second-container > div:nth-child(1) > div > div > ul > li:nth-child(3) > div').click()
@@ -44,7 +45,7 @@ class ye_wu():
             raiseout()
 
     def alter(self,name):
-        self.d.find_element_by_xpath('//*[@id="index"]/div[2]/div[2]/div/div[2]/div[3]/div[1]/div[3]/table/tbody/tr[7]/td[5]/div/button[1]').click()
+        self.d.find_element_by_xpath('//*[@id="index"]/div[2]/div[2]/div/div[2]/div[3]/div[1]/div[3]/table/tbody/tr[2]/td[5]/div/button[1]/i').click()
         sleep(1)
         #修改业务名称
         self.d.find_element_by_xpath('//*[@id="index"]/div[2]/div[2]/div/div[2]/div[4]/div/div[2]/form/div[1]/div/div/input').clear()
@@ -71,9 +72,11 @@ class ye_wu():
     def select(self):
         # 输入业务名称
         self.d.find_element_by_xpath('//*[@id="index"]/div[2]/div[2]/div/div[2]/div[1]/form/div[1]/div/div/input').send_keys("上网")
+
+        self.d.find_element_by_xpath('//*[@id="index"]/div[2]/div[2]/div/div[2]/div[1]/form/div[3]/div/button[2]').click()
         try:
-            self.d.find_element_by_xpath('//*[@id="index"]/div[2]/div[2]/div/div[2]/div[1]/form/div[3]/div/button[2]').click()
-            m = self.d.find_element_by_xpath('//*[@id="index"]/div[2]/div[2]/div/div[2]/div[3]/div[1]/div[3]/table/tbody/tr[1]/td[5]/div/button[1]').text
+            WebDriverWait(self.d,10,1).until(lambda ele:self.d.find_element_by_xpath('//*[@id="index"]/div[2]/div[2]/div/div[2]/div[3]/div[1]/div[3]/table/tbody/tr/td[1]/div'))
+            m = self.d.find_element_by_xpath('//*[@id="index"]/div[2]/div[2]/div/div[2]/div[3]/div[1]/div[3]/table/tbody/tr/td[1]/div').text
             self.d.close()
             return m
         except Exception as msg:
@@ -96,7 +99,7 @@ class ye_wu():
             m = self.d.find_element_by_css_selector("body > div.el-message.el-message--success").text
             self.d.close()
             return m
-        except Exception :
+        except Exception as e:
             self.d.find_element_by_xpath('/html/body/div[2]/div/div[3]/button/span').click()
             print(u"异常原因:场景正在被使用无法删除")
             screenshot(self.d, 'yewu')
@@ -105,5 +108,7 @@ class ye_wu():
 
 
 if __name__ == '__main__':
-    # ye_wu().alter("自动化测试")
-    ye_wu().delete()
+    ye_wu().alter("自动化测试")
+    # ye_wu().select()
+    # ye_wu().delete()
+    # ye_wu().add("业务1",'测试')
