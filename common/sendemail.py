@@ -1,13 +1,15 @@
-# coding:utf-8
-
-import os
+﻿# coding:utf-8
 import smtplib
 import time
 from email.mime.text import MIMEText
 from email.mime.multipart import MIMEMultipart
 from util.log.mylog import Log
 from config import globalparam
+import sys,os
 
+Path = os.path.abspath(os.path.dirname(__file__))
+rootPath = os.path.split(Path)[0]
+sys.path.append(rootPath)
 # 测试报告的路径
 reportPath = globalparam.report_path
 logger = Log()

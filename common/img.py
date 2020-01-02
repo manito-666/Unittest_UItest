@@ -14,5 +14,4 @@ def screenshot(driver, case_name):
     driver.get_screenshot_as_file(screen_img)
     m=globalparam.img_path
     print("截图已保存在:"+m)
-    # driver.get_screenshot_as_base64(screen_img)
     return screen_img
