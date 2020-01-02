@@ -27,18 +27,18 @@ class quit():
         # 打开主界面
         d.maximize_window()
         d.get("http://192.168.12.205/login")
-        WebDriverWait(d,60.1).until(lambda ele:d.find_element_by_xpath('//*[@id="app"]/div/div[1]/form/div[1]/div/div/input'))
-        d.find_element_by_xpath('//*[@id="app"]/div/div[1]/form/div[1]/div/div/input').clear()
+        WebDriverWait(d,60.1).until(lambda ele:d.find_element_by_xpath('//*[@id="app"]/div/div[1]/div[2]/form/div[1]/div/div/input'))
+        d.find_element_by_xpath('//*[@id="app"]/div/div[1]/div[2]/form/div[1]/div/div/input').clear()
         sleep(1)
-        d.find_element_by_xpath('//*[@id="app"]/div/div[1]/form/div[1]/div/div/input').send_keys(username)
+        d.find_element_by_xpath('//*[@id="app"]/div/div[1]/div[2]/form/div[1]/div/div/input').send_keys(username)
         sleep(1)
-        d.find_element_by_xpath('//*[@id="app"]/div/div[1]/form/div[2]/div/div/input').clear()
+        d.find_element_by_xpath('//*[@id="app"]/div/div[1]/div[2]/form/div[2]/div/div/input').clear()
         sleep(1)
         pwd=username[-6:]
-        d.find_element_by_xpath('//*[@id="app"]/div/div[1]/form/div[2]/div/div/input').send_keys(pwd)
+        d.find_element_by_xpath('//*[@id="app"]/div/div[1]/div[2]/form/div[2]/div/div/input').send_keys(pwd)
         sleep(1)
         # 点击提交登录系统
-        d.find_element_by_xpath('//*[@id="app"]/div/div[1]/form/div[3]/div/button').click()
+        d.find_element_by_xpath('//*[@id="app"]/div/div[1]/div[2]/form/div[3]/div/button').click()
         sleep(2)
         ActionChains(d).move_to_element(d.find_element_by_xpath('/html/body/div[1]/div/div[1]/section/div[2]/div/span/span')).perform()
         sleep(1)
@@ -49,4 +49,4 @@ class quit():
         return m
 
 if __name__ == '__main__':
-    quit().Logout_("password")
+    quit().Logout_("username")

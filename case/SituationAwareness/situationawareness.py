@@ -1,7 +1,7 @@
 from common.Login import Login
 from time import sleep
 from selenium.webdriver.support.ui import WebDriverWait
-from common.raiseout import raiseout
+
 class taishi:
     def __init__(self):
         L = Login()
