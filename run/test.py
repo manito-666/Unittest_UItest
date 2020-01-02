@@ -44,7 +44,7 @@ class Testcase01(unittest.TestCase):
 
     def testcase02(self):
         '''对场景进行编辑'''
-        result=CJ().alter("自动化测试")
+        result=CJ().alter("自动化")
         self.assertIn(result,"编辑场景成功","测试失败")
 
     def testcase03(self):
@@ -59,7 +59,7 @@ class Testcase01(unittest.TestCase):
 
     def testcase05(self):
         '''对场景进行删除'''
-        result=CJ().deleter()
+        result=CJ().delete()
         self.assertEqual(result,"删除成功","测试失败")
 
 
@@ -93,7 +93,7 @@ class Testcase02(unittest.TestCase):
     def testcase3(self):
         '''查询业务'''
         r=ye_wu().select()
-        self.assertIn(r,"编辑","测试失败")
+        self.assertIn(r,'1',"测试失败")
 
     def testcase4(self):
         '''对业务进行删除'''
@@ -186,7 +186,7 @@ class Testcase04(unittest.TestCase):
 
     def testcase03(self):
         '''查找终端用户存在'''
-        r=z_d().select()
+        r=z_d().select('13333333816')
         self.assertIn(r,"1","测试失败")
 
     def testcase04(self):
@@ -236,7 +236,7 @@ class Testcase05(unittest.TestCase):
 
     def testcase03(self):
         '''切片模版根据模版名称进行查询'''
-        r=qie_pian().select1("医疗L4")
+        r=qie_pian().select1("医疗切片")
         self.assertIn(r, "编辑", "测试失败")
 
     def testcase04(self):
@@ -278,7 +278,7 @@ class Testcase06(unittest.TestCase):
 
     def testcase03(self):
         '''对mec进行查询'''
-        r= M_ec().select("华西","中国移动")
+        r= M_ec().select()
         self.assertIn(r,"编辑",'测试失败')
 
     def testcase04(self):
@@ -314,7 +314,7 @@ class Testcase07(unittest.TestCase):
 
     def testcase03(self):
         '''对专网等级模版进行查询[通过模版名]'''
-        r=z_w().select_1("医疗L1")
+        r=z_w().select_1("航空")
         self.assertEqual(r,"编辑","测试失败")
 
     def testcase04(self):
@@ -359,7 +359,7 @@ class Testcase08(unittest.TestCase):
 
     def testcase04(self):
         '''验证用户创建后登陆成功[运营人员]'''
-        r = system().login_yy("yunyingLjG2z")
+        r = system().login_yy("test1111")
         self.assertEqual(r, "运营概览", "测试失败")
 
     def testcase05(self):
@@ -379,7 +379,7 @@ class Testcase08(unittest.TestCase):
 
     def testcase08(self):
         '''运维运营登录退出'''
-        r=quit().Logout_('password')
+        r=quit().Logout_('username')
         self.assertEqual(r,'登录Login','测试失败')
 
 
@@ -417,14 +417,14 @@ if __name__ == '__main__':
     # runner.run(suite)
 
     #1.执行场景测试
-    # testcases = unittest.TestLoader().loadTestsFromTestCase(Testcase01)
-    # suite.addTest(testcases)
-    # BeautifulReport(testcases).report(filename=report_title, description='场景测试',report_dir=report_path,theme="theme_cyan")
-
-    # 2.执行业务测试
-    testcases = unittest.TestLoader().loadTestsFromTestCase(Testcase02)
+    testcases = unittest.TestLoader().loadTestsFromTestCase(Testcase01)
     suite.addTest(testcases)
-    BeautifulReport(testcases).report(filename=report_title, description='业务测试',report_dir=report_path,theme="theme_cyan")
+    BeautifulReport(testcases).report(filename=report_title, description='场景测试',report_dir=report_path,theme="theme_cyan")
+    descriptionlist=[]
+    # 2.执行业务测试
+    # testcases = unittest.TestLoader().loadTestsFromTestCase(Testcase02)
+    # suite.addTest(testcases)
+    # BeautifulReport(testcases).report(filename=report_title, description='业务测试',report_dir=report_path,theme="theme_cyan")
 
     #3.执行专网租户测试
     # testcases = unittest.TestLoader().loadTestsFromTestCase(Testcase03)
