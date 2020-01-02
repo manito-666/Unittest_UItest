@@ -1,5 +1,8 @@
 # coding=utf-8
-import unittest,ddt,time,warnings
+import unittest,ddt,time,warnings,os,sys
+Path = os.path.abspath(os.path.dirname(__file__))
+rootPath = os.path.split(Path)[0]
+sys.path.append(rootPath)
 from case.Scene.scene import CJ
 from case.Bussiness.bussiness import ye_wu
 from case.NetworkTenants.networktenants import zu_hu
