@@ -1,10 +1,13 @@
 #coding=utf-8
 import logging
 import time
-import os
+import os,sys
 from config import globalparam
-
+curPath = os.path.abspath(os.path.dirname(__file__))
+rootPath = os.path.split(curPath)[0]
+sys.path.append(rootPath)
 log_path = globalparam.log_path
+print(sys.path)
 class Log:
     def __init__(self):
         self.logname = os.path.join(log_path, '{0}.log'.format(time.strftime('%Y-%m-%d')))
