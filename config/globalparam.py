@@ -3,11 +3,8 @@
 import sys
 import os
 curPath = os.path.abspath(os.path.dirname(__file__))
-
 rootPath = os.path.split(curPath)[0]
-print(rootPath)
 sys.path.append(rootPath)
-print(sys.path)
 from common.readconfig import ReadConfig
 # 读取配置文件
 config_file_path = os.path.split(os.path.realpath(__file__))[0]
