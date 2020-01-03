@@ -46,13 +46,17 @@ class z_w():
         self.d.find_element_by_xpath('/html/body/div[5]/div[1]/div[1]/ul/li[1]').click()
         sleep(1)
         Log().info("选择协议")
-        self.d.find_element_by_xpath('/html/body/div[1]/div/div[2]/div[2]/div/div[3]/div/div[2]/form/div[4]/div/div/div[1]/form/div[3]/div[2]/div/div[2]/div/div/div[1]/span/span/i').click()
+        WebDriverWait(self.d, 60, 1).until(lambda ele: self.d.find_element_by_xpath(
+           '//*[@id="el-collapse-content-6777"]/div/div[2]/div/div/div[1]/span/span/i'))
+        self.d.find_element_by_xpath(
+            '//*[@id="el-collapse-content-6777"]/div/div[2]/div/div/div[1]/span/span/i').click()
         sleep(1)
-        self.d.find_element_by_xpath('/html/body/div[6]/div[1]/div[1]/ul/li[2]').click()
-        sleep(1)
+        WebDriverWait(self.d, 10, 1).until(
+            lambda ele: self.d.find_element_by_xpath('/html/body/div[4]/div[1]/div[1]/ul/li[2]'))
+        self.d.find_element_by_xpath('/html/body/div[4]/div[1]/div[1]/ul/li[2]').click()
         Log().info("输入ip")
-        WebDriverWait(self.d,60,1).until(lambda ele:self.d.find_element_by_xpath('//*[@id="el-collapse-content-1688"]/div/div[3]/div/div/div[1]/input'))
-        self.d.find_element_by_xpath('//*[@id="el-collapse-content-1688"]/div/div[3]/div/div/div[1]/input').send_keys(ip)
+        WebDriverWait(self.d,60,1).until(lambda ele:self.d.find_element_by_xpath('//*[@id="el-collapse-content-6777"]/div/div[3]/div/div/div/input'))
+        self.d.find_element_by_xpath('//*[@id="el-collapse-content-6777"]/div/div[3]/div/div/div/input').send_keys(ip)
         sleep(1)
         self.d.find_element_by_xpath('//*[@id="el-collapse-content-7606"]/div/div[4]/div/div/input').send_keys(ip)
         sleep(1)
@@ -145,7 +149,7 @@ class z_w():
         self.d.find_element_by_xpath('//*[@id="index"]/div[2]/div[2]/div/div[2]/div[1]/form/div[4]/div/button[2]').click()
         sleep(1)
         try:
-            m=self.d.find_element_by_xpath('//*[@id="index"]/div[2]/div[2]/div/div[2]/div[2]/div[2]/div[1]/div[3]/table/tbody/tr/td[6]/div/button[2]/span').text
+            m=self.d.find_element_by_xpath('//*[@id="index"]/div[2]/div[2]/div/div[2]/div[2]/div[2]/div[1]/div[3]/table/tbody/tr/td[6]/div/button[1]').text
             Log().info("查找成功")
             self.d.close()
             return m
@@ -203,7 +207,7 @@ class z_w():
 
 
 if __name__ == '__main__':
-    z_w().add01("测试回归","10.1.1.2","33")
+    # z_w().add01("测试回归","10.1.1.2","33")
     # z_w().add02("引用测试")
-    # z_w().select_2()
+    z_w().select_1('回归')
     # z_w().delete()
