@@ -131,6 +131,6 @@ class CJ():
             raiseout()
 
 if __name__ == '__main__':
-    CJ().add("病房","11")
-    # CJ().select_cj()
+    # CJ().add("病房","11")
+    CJ().select_cj()
     # CJ().delete()
