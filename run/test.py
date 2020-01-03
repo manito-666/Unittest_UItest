@@ -22,7 +22,7 @@ warnings.filterwarnings("ignore")
 report_path=globalparam.report_path
 epath=globalparam.data_path
 
-# #场景用例---5
+# #场景用例--5
 #
 # @ddt.ddt
 # class Testcase01(unittest.TestCase):
