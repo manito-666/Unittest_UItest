@@ -1,6 +1,10 @@
 # coding:utf-8
+import os,sys,string
 from openpyxl import load_workbook
 import openpyxl,random
+Path = os.path.abspath(os.path.dirname(__file__))
+rootPath = os.path.split(Path)[0]
+sys.path.append(rootPath)
 from util.log.mylog import Log
 from config.globalparam import data_path
 
@@ -69,18 +73,34 @@ class Write_excel(object):
 
 
 if __name__ == '__main__':
-    # copy_excel('data.xlsx','data2.xlsx')
-    # Write_excel(data_path).printing()
     wb = load_workbook(data_path)
     sheetnames=wb.sheetnames
     print(sheetnames)
-
     set=['A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P','Q','R','S','T','U','V','W','X','Y','Z','a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z']
     b='测试'+random.choice(set)
     c="租户"+random.choice(set)
-    # Write_excel(data_path).write(0,2,1,format(b))
-    Write_excel(data_path).write(1, 2, 1, b)
+    d="专网等级模版"+random.choice(set)
+    e="切片模版"+random.choice(set)
+    phone_a="185"
+    phone_b=random.randint(10000000,99999999)
+    phone = phone_a + str(phone_b)
+    username=[]
+    for i in range(8):
+        if random.randint(0, 1):
+            letter = random.choice(string.ascii_letters)
+            username.append(letter)
+        else:
+            letter = random.choice(string.digits)
+            username.append(letter)
+    f=("".join(username))
+    Write_excel(data_path).write(0,2,1,format(b))
+    # Write_excel(data_path).write(1, 2, 1, b)
+    #
     # Write_excel(data_path).write(2, 2, 1,c )
+    # Write_excel(data_path).write(2, 2, 3,phone)
+    #
+    # Write_excel(data_path).write(3, 2, 1, phone)
+    # Write_excel(data_path).write(4, 2, 1, d)
+    # Write_excel(data_path).write(5, 2, 1, e)
+    # Write_excel(data_path).write(6, 2, 1, f)
 
-    # Write_excel(data_path).write(3, 2, 1, b)
-    # Write_excel(data_path).write(4, 2, 1, b)
