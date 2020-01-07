@@ -1,8 +1,6 @@
 from selenium import webdriver
 from time import sleep
 from selenium.webdriver.support.ui import WebDriverWait
-import sys
-print(sys.path)
 class Login:
     def login(self):
         # 实例化浏览器
