@@ -1,3 +1,4 @@
+# coding=utf-8
 from common.Login import Login
 from time import sleep
 from selenium.webdriver.support.ui import WebDriverWait
