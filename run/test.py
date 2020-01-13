@@ -23,7 +23,7 @@ report_path=globalparam.report_path
 epath=globalparam.data_path
 
 #场景用例--5
-
+"""
 @ddt.ddt
 class Testcase01(unittest.TestCase):
     @classmethod
@@ -383,7 +383,7 @@ class Testcase08(unittest.TestCase):
         r=quit().Logout_('username')
         self.assertEqual(r,'登录Login','测试失败')
 
-
+"""
 #综合态势感知用例----3条
 class Testcase09(unittest.TestCase):
     @classmethod
