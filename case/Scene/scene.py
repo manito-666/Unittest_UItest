@@ -47,8 +47,8 @@ class CJ():
 
     def alter(self,name):
         Log().info("点击编辑")
-        WebDriverWait(self.d,10,1).until(lambda ele:self.d.find_element_by_xpath('//*[@id="index"]/div[2]/div[2]/div/div[2]/div[3]/div[1]/div[3]/table/tbody/tr[5]/td[5]/div/button[1]'))
-        self.d.find_element_by_xpath('//*[@id="index"]/div[2]/div[2]/div/div[2]/div[3]/div[1]/div[3]/table/tbody/tr[5]/td[5]/div/button[1]').click()
+        WebDriverWait(self.d,10,1).until(lambda ele:self.d.find_element_by_xpath('//*[@id="index"]/div[2]/div[2]/div/div[2]/div[3]/div[1]/div[3]/table/tbody/tr[2]/td[5]/div/button[1]'))
+        self.d.find_element_by_xpath('//*[@id="index"]/div[2]/div[2]/div/div[2]/div[3]/div[1]/div[3]/table/tbody/tr[2]/td[5]/div/button[1]').click()
         sleep(2)
         Log().info("修改场景名称")
         self.d.find_element_by_xpath('//*[@id="index"]/div[2]/div[2]/div/div[2]/div[4]/div/div[2]/form/div[1]/div/div/input').clear()
@@ -133,5 +133,5 @@ class CJ():
 if __name__ == '__main__':
     # CJ().add("病房","11")
     # CJ().select_cj('test')
-    CJ().select_hy()
+    CJ().alter("测试")
     # CJ().delete()
