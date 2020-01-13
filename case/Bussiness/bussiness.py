@@ -73,9 +73,9 @@ class ye_wu():
             screenshot(self.d, 'yewu')
             raiseout()
 
-    def select(self):
+    def select(self,name):
         Log().info("输入业务名称")
-        self.d.find_element_by_xpath('//*[@id="index"]/div[2]/div[2]/div/div[2]/div[1]/form/div[1]/div/div/input').send_keys("上网")
+        self.d.find_element_by_xpath('//*[@id="index"]/div[2]/div[2]/div/div[2]/div[1]/form/div[1]/div/div/input').send_keys(name)
 
         self.d.find_element_by_xpath('//*[@id="index"]/div[2]/div[2]/div/div[2]/div[1]/form/div[3]/div/button[2]').click()
         try:
