@@ -73,10 +73,10 @@ class CJ():
             screenshot(self.d, 'changjing')
             raiseout()
 
-    def select_cj(self):
+    def select_cj(self,name):
         Log().info("输入场景名称进行查找")
         WebDriverWait(self.d,10,1).until(lambda ele:self.d.find_element_by_css_selector("#index > div.second-container > div.main-wrapper > div > div:nth-child(2) > div.common-search > form > div:nth-child(1) > div > div > input"))
-        self.d.find_element_by_css_selector("#index > div.second-container > div.main-wrapper > div > div:nth-child(2) > div.common-search > form > div:nth-child(1) > div > div > input").send_keys("手术")
+        self.d.find_element_by_css_selector("#index > div.second-container > div.main-wrapper > div > div:nth-child(2) > div.common-search > form > div:nth-child(1) > div > div > input").send_keys(name)
         sleep(1)
         try:
             self.d.find_element_by_xpath('//*[@id="index"]/div[2]/div[2]/div/div[2]/div[1]/form/div[3]/div/button[2]').click()
@@ -132,5 +132,6 @@ class CJ():
 
 if __name__ == '__main__':
     # CJ().add("病房","11")
-    CJ().select_cj()
+    # CJ().select_cj('test')
+    CJ().select_hy()
     # CJ().delete()
