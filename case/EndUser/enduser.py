@@ -120,7 +120,6 @@ class z_d():
             WebDriverWait(self.d,10,1).until(lambda ele:self.d.find_element_by_css_selector("body > div.el-message.el-message--success"))
             m=self.d.find_element_by_css_selector('body > div.el-message.el-message--success').text
             Log().info(m)
-            print(m)
             self.d.close()
             return m
         except Exception :
