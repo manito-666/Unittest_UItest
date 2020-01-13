@@ -23,7 +23,7 @@ report_path=globalparam.report_path
 epath=globalparam.data_path
 
 #场景用例--5
-"""
+
 @ddt.ddt
 class Testcase01(unittest.TestCase):
     @classmethod
@@ -65,7 +65,7 @@ class Testcase01(unittest.TestCase):
         result=CJ().delete()
         self.assertEqual(result,"删除成功","测试失败")
 
-
+"""
 #业务用例----4
 @ddt.ddt
 class Testcase02(unittest.TestCase):
