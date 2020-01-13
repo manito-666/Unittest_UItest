@@ -47,7 +47,7 @@ class ye_wu():
             raiseout()
 
     def alter(self,name):
-        self.d.find_element_by_xpath('//*[@id="index"]/div[2]/div[2]/div/div[2]/div[3]/div[1]/div[3]/table/tbody/tr[10]/td[5]/div/button[1]').click()
+        self.d.find_element_by_xpath('//*[@id="index"]/div[2]/div[2]/div/div[2]/div[3]/div[1]/div[3]/table/tbody/tr[2]/td[5]/div/button[1]').click()
         sleep(1)
         Log().info("修改业务名称")
         self.d.find_element_by_xpath('//*[@id="index"]/div[2]/div[2]/div/div[2]/div[4]/div/div[2]/form/div[1]/div/div/input').clear()
