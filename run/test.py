@@ -15,6 +15,7 @@ from case.SystemManger.logout import quit
 from case.SituationAwareness.situationawareness import taishi
 from BeautifulReport import BeautifulReport
 from util.Excelread import ExcelUtil
+
 from util.log.mylog import Log
 from config import globalparam
 #取消警告提醒
@@ -65,7 +66,7 @@ class Testcase01(unittest.TestCase):
         result=CJ().delete()
         self.assertEqual(result,"删除成功","测试失败")
 
-"""
+
 #业务用例----4
 @ddt.ddt
 class Testcase02(unittest.TestCase):
@@ -240,7 +241,7 @@ class Testcase05(unittest.TestCase):
 
     def testcase03(self):
         '''切片模版根据模版名称进行查询'''
-        r=qie_pian().select1("test")
+        r=qie_pian().select1("切片模版一")
         self.assertIn(r, "编辑", "测试失败")
 
     def testcase04(self):
@@ -315,7 +316,7 @@ class Testcase07(unittest.TestCase):
 
     def testcase03(self):
         '''对专网等级模版进行查询[通过模版名]'''
-        r=z_w().select_1("回归")
+        r=z_w().select_1("test")
         self.assertEqual(r,"详情","测试失败")
 
     def testcase04(self):
@@ -383,7 +384,7 @@ class Testcase08(unittest.TestCase):
         r=quit().Logout_('username')
         self.assertEqual(r,'登录Login','测试失败')
 
-"""
+
 #综合态势感知用例----3条
 class Testcase09(unittest.TestCase):
     @classmethod
@@ -420,7 +421,7 @@ if __name__ == '__main__':
     Name = ['场景测试', '业务测试', '专网租户测试', '终端用户测试', '切片模块测试', 'MEC模块测试', '专网等级模块测试', '系统用户管理测试', '综合态势感知测试']
     #Testcase01='场景测试',Testcase02='业务测试',.....
     #Name[0]='场景测试',Name[1]='业务测试',.....
-    testcases = unittest.TestLoader().loadTestsFromTestCase(Testcase09)
+    testcases = unittest.TestLoader().loadTestsFromTestCase(Testcase07)
     suite.addTest(testcases)
-    BeautifulReport(testcases).report(filename=report_title, description=Name[8],report_dir=report_path,theme="theme_cyan")
+    BeautifulReport(testcases).report(filename=report_title, description=Name[5],report_dir=report_path,theme="theme_cyan")
 
