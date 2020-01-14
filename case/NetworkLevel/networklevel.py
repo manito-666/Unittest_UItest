@@ -192,12 +192,12 @@ class z_w():
             raiseout()
 
     def delete(self):
-        Log().info("删除第二页首个数据")
-        WebDriverWait(self.d, 60, 1).until(lambda ele: self.d.find_element_by_xpath('//*[@id="index"]/div[2]/div[2]/div/div[2]/div[2]/div[2]/div[2]/ul/li[2]'))
-        self.d.find_element_by_xpath('//*[@id="index"]/div[2]/div[2]/div/div[2]/div[2]/div[2]/div[2]/ul/li[2]').click()
-        sleep(2)
-        WebDriverWait(self.d, 60, 1).until(lambda ele: self.d.find_element_by_xpath('//*[@id="index"]/div[2]/div[2]/div/div[2]/div[2]/div[2]/div[1]/div[3]/table/tbody/tr[1]/td[6]/div/button[3]/i'))
-        self.d.find_element_by_xpath('//*[@id="index"]/div[2]/div[2]/div/div[2]/div[2]/div[2]/div[1]/div[3]/table/tbody/tr[1]/td[6]/div/button[3]/i').click()
+        Log().info("删除第3条数据")
+        # WebDriverWait(self.d, 60, 1).until(lambda ele: self.d.find_element_by_xpath('//*[@id="index"]/div[2]/div[2]/div/div[2]/div[2]/div[2]/div[2]/ul/li[2]'))
+        # self.d.find_element_by_xpath('//*[@id="index"]/div[2]/div[2]/div/div[2]/div[2]/div[2]/div[2]/ul/li[2]').click()
+        # sleep(2)
+        WebDriverWait(self.d, 60, 1).until(lambda ele: self.d.find_element_by_xpath('//*[@id="index"]/div[2]/div[2]/div/div[2]/div[2]/div[2]/div[1]/div[3]/table/tbody/tr[3]/td[6]/div/button[3]'))
+        self.d.find_element_by_xpath('//*[@id="index"]/div[2]/div[2]/div/div[2]/div[2]/div[2]/div[1]/div[3]/table/tbody/tr[3]/td[6]/div/button[3]').click()
         sleep(1)
         try:
             Log().info("点击删除")
@@ -217,5 +217,5 @@ class z_w():
 if __name__ == '__main__':
     # z_w().add01("测试回归","10.1.1.2","33")
     # z_w().add02("引用测试")
-    z_w().select_1('回归')
+    z_w().select_2()
     # z_w().delete()

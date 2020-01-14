@@ -61,7 +61,7 @@ class zu_hu():
 
     def alter(self,name,xm,phone,beizhu):
         Log().info("点击编辑")
-        self.d.find_element_by_xpath('//*[@id="index"]/div[2]/div[2]/div/div[2]/div[2]/div[2]/div[1]/div[3]/table/tbody/tr[4]/td[9]/div/button[1]').click()
+        self.d.find_element_by_xpath('//*[@id="index"]/div[2]/div[2]/div/div[2]/div[2]/div[2]/div[1]/div[3]/table/tbody/tr[2]/td[9]/div/button[1]/i').click()
         sleep(1)
         Log().info("修改租户名称")
         self.d.find_element_by_xpath('//*[@id="index"]/div[2]/div[2]/div/div[2]/div[2]/div[3]/div/div[2]/form/div[1]/div/div/input').clear()
@@ -101,7 +101,7 @@ class zu_hu():
 
     def swith(self):
         Log().info("租户详情页跳转")
-        self.d.find_element_by_link_text("华西").click()
+        self.d.find_element_by_xpath('//*[@id="index"]/div[2]/div[2]/div/div[2]/div[2]/div[2]/div[1]/div[3]/table/tbody/tr[1]/td[2]').click()
         sleep(1)
         try:
             m=self.d.find_element_by_xpath('//*[@id="index"]/div[2]/div[2]/div/div[2]/div[1]/div[2]/div[2]/button[1]').text
@@ -233,10 +233,10 @@ class zu_hu():
             raise
 
     def delete(self):
-        Log().info("删除第二页首个租户数据")
-        self.d.find_element_by_xpath('//*[@id="index"]/div[2]/div[2]/div/div[2]/div[2]/div[2]/div[2]/ul/li[2]').click()
-        WebDriverWait(self.d,60,1).until(lambda ele: self.d.find_element_by_xpath('//*[@id="index"]/div[2]/div[2]/div/div[2]/div[2]/div[2]/div[2]/ul/li[2]'))
-        self.d.find_element_by_xpath('//*[@id="index"]/div[2]/div[2]/div/div[2]/div[2]/div[2]/div[1]/div[3]/table/tbody/tr[1]/td[9]/div/button[2]').click()
+        Log().info("删除第3个租户数据")
+        # self.d.find_element_by_xpath('//*[@id="index"]/div[2]/div[2]/div/div[2]/div[2]/div[2]/div[2]/ul/li[2]').click()
+        # WebDriverWait(self.d,60,1).until(lambda ele: self.d.find_element_by_xpath('//*[@id="index"]/div[2]/div[2]/div/div[2]/div[2]/div[2]/div[2]/ul/li[2]'))
+        self.d.find_element_by_xpath('//*[@id="index"]/div[2]/div[2]/div/div[2]/div[2]/div[2]/div[1]/div[3]/table/tbody/tr[3]/td[9]/div/button[2]').click()
         try:
             Log().info("点击确认")
             self.d.find_element_by_xpath('/html/body/div[2]/div/div[3]/button[2]').click()
