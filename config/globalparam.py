@@ -21,8 +21,7 @@ img_path = os.path.join(prj_path, 'run', 'PrintScreen')
 
 # 测试报告路径
 report_path=os.path.join(prj_path,'run','report')
-# prj='C:\Program Files (x86)\Jenkins\workspace\iNMS_UItest'
-# report_path = os.path.join(prj, 'run', 'report')
+
 
 # 默认浏览器
 browser = 'Chrome'
