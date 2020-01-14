@@ -7,7 +7,6 @@ sys.path.append(rootPath)
 from common.sendemail import SendMail
 from config import globalparam
 
-
 if __name__ == '__main__':
 
     now = time.strftime("%Y-%m-%d %H-%M-%S", time.localtime(time.time()))
