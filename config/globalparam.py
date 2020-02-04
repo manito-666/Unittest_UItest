@@ -20,9 +20,10 @@ log_path = os.path.join(prj_path, 'util', 'log')
 img_path = os.path.join(prj_path, 'run', 'PrintScreen')
 
 # 测试报告路径
+
 report_path=os.path.join(prj_path,'run','report')
-
-
+report=os.path.realpath(report_path)
+print(report)
 # 默认浏览器
 browser = 'Chrome'
 
