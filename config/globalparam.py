@@ -14,20 +14,18 @@ read_config = ReadConfig(os.path.join(config_file_path,'config.ini'))
 prj_path = read_config.getValue('projectConfig','project_path')
 
 # 日志路径
-log_path = os.path.join(prj_path, 'util', 'log')
+log_path = os.path.join(prj_path+'/util'+'/log')
 
 # 截图文件路径
-img_path = os.path.join(prj_path, 'run', 'PrintScreen')
+img_path = os.path.join(prj_path+'/run'+'/PrintScreen')
 
 # 测试报告路径
 
-report_path=os.path.join(prj_path,'run','report')
-report=os.path.realpath(report_path)
-print(report)
-# 默认浏览器
-browser = 'Chrome'
+report_path = os.path.join(prj_path+'/run'+'/report')
+
+
 
 # 测试数据路径
-data_path = os.path.join(prj_path, 'util', 'data.xlsx')
+data_path = os.path.join(prj_path+'/util'+'/data.xlsx')
 
-impo_path=os.path.join(prj_path,'util','users-Template .xlsx')
+impo_path=os.path.join(prj_path+'/util'+'/users-Template .xlsx')
