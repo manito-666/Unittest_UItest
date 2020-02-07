@@ -72,7 +72,7 @@ if __name__ == '__main__':
     wb = load_workbook(data_path)
     sheetnames=wb.sheetnames
     print(sheetnames)
-    # Write_excel(data_path).printing()
+    Write_excel(data_path).printing()
     set=['A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P','Q','R','S','T','U','V','W','X','Y','Z','a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z']
     b='测试'+random.choice((set))
     c="租户"+random.choice(set)
@@ -90,6 +90,7 @@ if __name__ == '__main__':
             letter = random.choice(string.digits)
             username.append(letter)
     f=("".join(username))
+
     Write_excel(data_path).write(0,2,1,b)
     Write_excel(data_path).write(1, 2, 1, b)
 
