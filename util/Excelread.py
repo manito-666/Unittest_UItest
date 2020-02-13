@@ -1,5 +1,5 @@
 import xlrd
-
+'''读取excel表格数据'''
 class ExcelUtil(object):
     def next(self, excelPath, sheetName):
         self.data = xlrd.open_workbook(excelPath)
