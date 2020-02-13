@@ -1,3 +1,4 @@
+# coding:utf-8
 import xlrd
 '''读取excel表格数据'''
 class ExcelUtil(object):
