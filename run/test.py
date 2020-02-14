@@ -329,7 +329,7 @@ class Testcase07(unittest.TestCase):
         r=z_w().delete()
         self.assertIn(r, "删除成功", "测试失败")
 
-# #系统用户管理用例----8
+#系统用户管理用例----8
 @ddt.ddt
 class Testcase08(unittest.TestCase):
     @classmethod
