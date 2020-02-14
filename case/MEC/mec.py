@@ -23,13 +23,13 @@ class M_ec():
             Log().info("选择租户")
             self.d.find_element_by_xpath('//*[@id="index"]/div[2]/div[2]/div/div[2]/div[2]/div[3]/div/div[2]/form/div[1]/div/div/div/span/span/i').click()
             sleep(2)
-            WebDriverWait(self.d,30,0.5).until(lambda ele:self.d.find_element_by_xpath('/html/body/div[5]/div[1]/div[1]/ul/li[2]'))
-            self.d.find_element_by_xpath('/html/body/div[5]/div[1]/div[1]/ul/li[2]').click()
+            WebDriverWait(self.d,30,0.5).until(lambda ele:self.d.find_element_by_xpath('/html/body/div[5]/div[1]/div[1]/ul/li[3]'))
+            self.d.find_element_by_xpath('/html/body/div[5]/div[1]/div[1]/ul/li[3]').click()
             sleep(1)
             Log().info("选择厂商")
             self.d.find_element_by_xpath('//*[@id="index"]/div[2]/div[2]/div/div[2]/div[2]/div[3]/div/div[2]/form/div[2]/div/div/div[1]/span/span/i').click()
             sleep(1)
-            self.d.find_element_by_xpath('/html/body/div[4]/div[1]/div[1]/ul/li[4]').click()
+            self.d.find_element_by_xpath('/html/body/div[5]/div[1]/div[1]/ul/li[4]').click()
             sleep(1)
             Log().info("输入url")
             self.d.find_element_by_xpath('//*[@id="index"]/div[2]/div[2]/div/div[2]/div[2]/div[3]/div/div[2]/form/div[3]/div/div[1]/input').send_keys(url)
@@ -41,7 +41,7 @@ class M_ec():
             Log().info("添加成功")
             self.d.close()
             return t
-        except Exception as msg:
+        except Exception :
             Log().debug("异常原因:该租户已添加mec且租户只能添加一个")
             screenshot(self.d, 'mec')
             raiseout()
@@ -49,7 +49,8 @@ class M_ec():
 
     def alter(self):
         Log().info("点击编辑")
-        self.d.find_element_by_xpath('//*[@id="index"]/div[2]/div[2]/div/div[2]/div[2]/div[2]/div[1]/div[3]/table/tbody/tr[2]/td[5]/div/button[1]').click()
+        self.d.find_element_by_xpath(
+            '//*[@id="index"]/div[2]/div[2]/div/div[2]/div[2]/div[2]/div[1]/div[3]/table/tbody/tr/td[5]/div/button[1]').click()
         sleep(1)
         Log().info("修改url")
         self.d.find_element_by_xpath('//*[@id="index"]/div[2]/div[2]/div/div[2]/div[2]/div[3]/div/div[2]/form/div[3]/div/div/input').clear()
@@ -93,17 +94,13 @@ class M_ec():
             raiseout()
 
     def delete(self):
-        Log().info("删除第二页首个数据")
-        WebDriverWait(self.d, 60, 1).until(lambda ele: self.d.find_element_by_xpath('//*[@id="index"]/div[2]/div[2]/div/div[2]/div[2]/div[2]/div[2]/ul/li[2]'))
-        self.d.find_element_by_xpath('//*[@id="index"]/div[2]/div[2]/div/div[2]/div[2]/div[2]/div[2]/ul/li[2]').click()
-        sleep(2)
+        Log().info("删除第3个数据")
+        self.d.find_element_by_xpath('//*[@id="index"]/div[2]/div[2]/div/div[2]/div[2]/div[2]/div[1]/div[3]/table/tbody/tr[3]/td[5]/div/button[2]').click()
+        sleep(1)
         Log().info("点击删除")
-        WebDriverWait(self.d, 60, 1).until(lambda ele: self.d.find_element_by_xpath('//*[@id="index"]/div[2]/div[2]/div/div[2]/div[2]/div[2]/div[1]/div[3]/table/tbody/tr[1]/td[5]/div/button[2]'))
-        self.d.find_element_by_xpath('//*[@id="index"]/div[2]/div[2]/div/div[2]/div[2]/div[2]/div[1]/div[3]/table/tbody/tr[1]/td[5]/div/button[2]').click()
+        self.d.find_element_by_css_selector('body > div.el-message-box__wrapper > div > div.el-message-box__btns > button.el-button.el-button--default.el-button--small.el-button--primary').click()
         sleep(1)
         try:
-            self.d.find_element_by_css_selector('body > div.el-message-box__wrapper > div > div.el-message-box__btns > button.el-button.el-button--default.el-button--small.el-button--primary > span').click()
-            WebDriverWait(self.d, 60, 1).until(lambda ele: self.d.find_element_by_css_selector('body > div.el-message.el-message--success'))
             m = self.d.find_element_by_css_selector("body > div.el-message.el-message--success").text
             Log().info("删除成功")
             self.d.close()
