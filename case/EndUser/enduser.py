@@ -169,10 +169,10 @@ class z_d():
 
 
 if __name__ == '__main__':
-    # z_d().add("13311161111","999","11")
+    z_d().add("13311161111","999","11")
     # z_d().select('13512311316')
     # z_d().alter()
-    z_d().pldaoru(r'F:\python\Unittest_UI\util\users-Template .xlsx')
+    # z_d().pldaoru(r'F:\python\Unittest_UI\util\users-Template .xlsx')
     # z_d().pladd()
     # z_d().delete()
     # z_d().betch_delete()
