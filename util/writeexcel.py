@@ -1,8 +1,9 @@
 # coding:utf-8
 from openpyxl import load_workbook
-import openpyxl,random,string,os
+import openpyxl,random,string,os,sys
 Path = os.path.abspath(os.path.dirname(__file__))
 rootPath = os.path.split(Path)[0]
+sys.path.append(rootPath)
 from util.log.mylog import Log
 from config.globalparam import data_path
 
